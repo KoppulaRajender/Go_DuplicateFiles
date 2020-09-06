@@ -1,0 +1,18 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: go-duplicatefiles
+spec:
+  selector:
+    matchLabels:
+      app: DuplicateFilesCheck
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: DuplicateFilesCheck
+    spec:
+      containers:
+      - name: DuplicateFilesCheck_container
+        image: go_duplicatefiles:latest
+        
